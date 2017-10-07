@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /// General client info
-public class DeviceInfo: Mappable {
+public struct DeviceInfo: Mappable {
 
     //-------------------------------------------------------------------------------------------
     // MARK: - System Device Info
@@ -39,7 +39,7 @@ public class DeviceInfo: Mappable {
     //-------------------------------------------------------------------------------------------
     // MARK: - DeviceInfo
 
-    public required init() {}
+    public init() {}
 
     public var propertyValues: [String: Any] {
         return propertyValuesRaw

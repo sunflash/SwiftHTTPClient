@@ -1,0 +1,27 @@
+{
+    "id": 924,
+    "title": "Mr.",
+    "firstName": "Min",
+    "lastName": "Wu",
+    "gender": "male",
+    "dob": "1980-09-24T00:00:00.000Z",
+    "email": "sunflash@users.noreply.github.com",
+    "mobile": {
+        "country": "Denmark",
+        "number": "12345678"
+    },
+    "address": [
+        {
+            "type": "home",
+            "zipCode": 2300,
+            "city": "Copenhagen",
+            "country": "Denmark"
+        },
+        {
+            "type": "work",
+            "zipCode": 2300,
+            "city": "Copenhagen",
+            "country": "Denmark"
+        }
+    ]
+}
