@@ -1,0 +1,9 @@
+{
+    "clean": true,
+    "author": "Min Wu",
+    "author_url": "https://github.com/sunflash",
+    "github_url": "https://github.com/sunflash/mappable",
+    "sdk": "iphoneos",
+    "module": "Mappable",
+    "xcodebuild_arguments": ["-scheme", "Mappable"]
+}
