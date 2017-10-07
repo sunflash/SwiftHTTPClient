@@ -12,16 +12,16 @@ import Foundation
 public struct SchemeTypeInfo {
 
     /// Swift object types
-    public var swiftObjectTypes: [String:Mappable.Type]?
+    public var swiftObjectTypes: [String: Mappable.Type]?
 
     /// Objective-C object types
-    public var objcObjectTypes: [String:Mappable.Type]?
+    public var objcObjectTypes: [String: Mappable.Type]?
 
     /// Swift object array types
-    public var swiftObjectArrayTypes: [String:Mappable.Type]?
+    public var swiftObjectArrayTypes: [String: Mappable.Type]?
 
     /// Objective-C object types
-    public var objcObjectArrayTypes: [String:Mappable.Type]?
+    public var objcObjectArrayTypes: [String: Mappable.Type]?
 
     /// Init scheme type info
     public init() {}
@@ -40,7 +40,7 @@ public struct SchemeInfo {
     public var typeInfo = SchemeTypeInfo()
 
     /// Primary keys definition for DB model
-    public var primaryKeys: [String:[String]] = [String: [String]]()
+    public var primaryKeys: [String: [String]] = [String: [String]]()
 
     /// Prefix used type definition
     public var prefix = ""

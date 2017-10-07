@@ -51,7 +51,7 @@ extension SchemeDBModel {
 
     fileprivate static var realmTypeLookUpTable = [String: String]()
 
-    private static let realmTypeTemplates: [String:String] = {
+    private static let realmTypeTemplates: [String: String] = {
         var realmTypes = [String: String]()
         realmTypes["Bool"] = "@objc dynamic var %@ = false"
         realmTypes["Int"] = "@objc dynamic var %@ = 0"
@@ -84,7 +84,7 @@ extension SchemeDBModel {
     }
 
     fileprivate static func generateRealmModel(object: Mappable,
-                                               primaryKeys: [String:[String]] = [String: [String]](),
+                                               primaryKeys: [String: [String]] = [String: [String]](),
                                                types: SchemeTypeInfo) -> String {
         let modelSubclass = "Object"
 
@@ -126,7 +126,7 @@ extension SchemeDBModel {
     private static func generateRealmType(objectName: String,
                                           propertyName: String,
                                           propertyValue: Any,
-                                          primaryKeys: [String:[String]] = [String: [String]](),
+                                          primaryKeys: [String: [String]] = [String: [String]](),
                                           types: SchemeTypeInfo) -> RealmTypeResult {
 
         // Make inputs mutable and extract info
@@ -196,7 +196,7 @@ extension SchemeDBModel {
     fileprivate static var propertyTypeLookUpTable = [String: String]()
 
     fileprivate static func generateObjectToRealmMapping(objects: [Mappable],
-                                                         primaryKeys: [String:[String]] = [String: [String]](),
+                                                         primaryKeys: [String: [String]] = [String: [String]](),
                                                          types: SchemeTypeInfo) -> String {
 
         var toRealmMappingExtension = ""
@@ -212,7 +212,7 @@ extension SchemeDBModel {
     private static func generatePrimaryKeyDefinition(_ nestedObjectType: SchemeUtility.NestedObjectType,
                                                      _ realmTypeLowerCase: String,
                                                      _ propertyName: String,
-                                                     _ primaryKeys: [String:[String]],
+                                                     _ primaryKeys: [String: [String]],
                                                      _ lookupKey: String) -> [String]? {
 
         guard var primaryKeyProperties = primaryKeys[lookupKey], primaryKeyProperties.isEmpty == false else {return nil}
@@ -272,7 +272,7 @@ extension SchemeDBModel {
     }
 
     fileprivate static func generateToRealmObjectContents(object: Mappable,
-                                                          primaryKeys: [String:[String]] = [String: [String]](),
+                                                          primaryKeys: [String: [String]] = [String: [String]](),
                                                           types: SchemeTypeInfo) -> String {
 
         // Extract object info and values
@@ -370,7 +370,7 @@ extension SchemeDBModel {
 extension SchemeDBModel {
 
     fileprivate static func generateRealmToObjectMapping(objects: [Mappable],
-                                                         primaryKeys: [String:[String]] = [String: [String]](),
+                                                         primaryKeys: [String: [String]] = [String: [String]](),
                                                          types: SchemeTypeInfo) -> String {
         var fromRealmMappingExtension = ""
 
@@ -382,7 +382,7 @@ extension SchemeDBModel {
     }
 
     fileprivate static func generateRealmToObjectContents(object: Mappable,
-                                                          primaryKeys: [String:[String]] = [String: [String]](),
+                                                          primaryKeys: [String: [String]] = [String: [String]](),
                                                           types: SchemeTypeInfo) -> String {
         // Extract object info and values
         let objType = "\(type(of: object))"
@@ -476,7 +476,7 @@ extension SchemeDBModel {
         }
     }
 
-    fileprivate static func getPropertyTypesForObject(_ object: Mappable?) -> [String:String] {
+    fileprivate static func getPropertyTypesForObject(_ object: Mappable?) -> [String: String] {
         var types = [String: String]()
         guard let obj = object else {return types}
         let mirror = Mirror(reflecting: obj)

@@ -359,6 +359,7 @@
 				D34AB1071F89622A001B3576 /* Headers */,
 				D34AB1081F89622A001B3576 /* Resources */,
 				AE95A178C31D8B292C9821A7 /* [CP] Copy Pods Resources */,
+				D39030B61F8981FD00798EC5 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -379,6 +380,7 @@
 				D34AB1111F89622A001B3576 /* Resources */,
 				028C2A16FEC023E0778825C4 /* [CP] Embed Pods Frameworks */,
 				AC7D2730F9BB602F404FE68B /* [CP] Copy Pods Resources */,
+				D39030B71F89822E00798EC5 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -540,6 +542,34 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftHttpClient-HTTPClient/Pods-SwiftHttpClient-HTTPClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D39030B61F8981FD00798EC5 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"error: 💣💣💣 SwiftLint is not installed, run \\\"pod install\\\"\"\nfi";
+		};
+		D39030B71F89822E00798EC5 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"error: 💣💣💣 SwiftLint is not installed, run \\\"pod install\\\"\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

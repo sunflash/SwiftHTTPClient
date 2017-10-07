@@ -111,7 +111,7 @@ public struct HTTPRequest {
     /// Http content type for request, optional
     public var contentType: HTTPContentType?
     /// Http header for request, optional
-    public var headers: [String:String]?
+    public var headers: [String: String]?
     /// Http body for request, optional
     public var body: Data?
 
@@ -156,7 +156,7 @@ extension BasicAuthenticationRequest {
     ///   - userName: User name for authentication
     ///   - password: Password for authentication
     /// - Returns: Basic authentication header, nil if user name or password is empty.
-    public static func basicAuthenticationHeader(userName: String, password: String) -> [String:String]? {
+    public static func basicAuthenticationHeader(userName: String, password: String) -> [String: String]? {
 
         let userNameNoSpace = userName.trimmingCharacters(in: .whitespaces)
         let passwordNoSpace = password.trimmingCharacters(in: .whitespaces)
@@ -207,7 +207,7 @@ public struct HTTPResponse {
     /// Content type for response
     public var contentType: HTTPContentType?
     /// Headers for response
-    public let headers: [String:String]
+    public let headers: [String: String]
     /// Body for response
     public var body: Data?
     /// Error for response
@@ -219,7 +219,7 @@ public struct HTTPResponse {
     ///   - url: URL for response
     ///   - statusCode: Stauts code for response
     ///   - headers: Headers for response
-    public init(url: URL?, statusCode: HTTPStatusCode, headers: [String:String]) {
+    public init(url: URL?, statusCode: HTTPStatusCode, headers: [String: String]) {
         self.url = url
         self.statusCode = statusCode
         self.headers = headers
@@ -301,7 +301,7 @@ extension JsonResponse {
                 var value = object
 
                 if value != nil && keys.isEmpty == false {
-                    keys.forEach {value = (value as? [String:Any])?[String($0)]}
+                    keys.forEach {value = (value as? [String: Any])?[String($0)]}
                 }
 
                 GCD.main.queue.async {

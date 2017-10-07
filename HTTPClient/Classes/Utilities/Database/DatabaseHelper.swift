@@ -180,7 +180,7 @@ extension DatabaseHelper {
 
         try autoreleasepool {
             let noEncryptRealm = try Realm(configuration: noEncryptConfiguration)
-            try noEncryptRealm.writeCopy(toFile:tempCopyFileURL, encryptionKey:key)
+            try noEncryptRealm.writeCopy(toFile: tempCopyFileURL, encryptionKey: key)
         }
 
         guard deleteFileIfExist(url: realmFileURL) == true else {return nil}
@@ -207,7 +207,7 @@ extension DatabaseHelper {
 
         try autoreleasepool {
             let encryptRealm = try Realm(configuration: encryptConfiguration)
-            try encryptRealm.writeCopy(toFile:tempCopyFileURL, encryptionKey:nil)
+            try encryptRealm.writeCopy(toFile: tempCopyFileURL, encryptionKey: nil)
         }
 
         guard deleteFileIfExist(url: realmFileURL) == true else {return nil}

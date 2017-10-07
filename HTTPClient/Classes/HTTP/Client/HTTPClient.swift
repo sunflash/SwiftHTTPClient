@@ -45,7 +45,7 @@ public class HTTPClient: Log {
     }
 
     /// Response completion handles that would invoke each time an http response is recevied
-    public var responseCompletionHandlers: [String:(HTTPResponse) -> Void] = [String: (HTTPResponse)->Void]()
+    public var responseCompletionHandlers: [String: (HTTPResponse) -> Void] = [String: (HTTPResponse)->Void]()
 
     private let defaultReachabilityHosts = ["google.com", "apple.com"]
 
@@ -123,7 +123,7 @@ public class HTTPClient: Log {
 
         let urlResponse = (response as? HTTPURLResponse) ?? HTTPURLResponse()
         let statusCode = HTTPStatusCode(statusCode: urlResponse.statusCode)
-        let headers = lowerCaseHeaders(urlResponse.allHeaderFields as? [String:String])
+        let headers = lowerCaseHeaders(urlResponse.allHeaderFields as? [String: String])
         var response = HTTPResponse(url: urlResponse.url, statusCode: statusCode, headers: headers)
         response.contentType = HTTPContentType(mimeType: urlResponse.mimeType)
         response.body = data

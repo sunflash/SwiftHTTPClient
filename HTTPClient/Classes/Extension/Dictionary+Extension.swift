@@ -31,7 +31,7 @@ extension Dictionary {
     /// - Parameters:
     ///   - left: dictionary on the left side of the operator that including values of dictionary from right side.
     ///   - right: dictionary on the right side of the operator.
-    static public func += (left: inout [Key:Value], right: [Key:Value]) {
+    static public func += (left: inout [Key: Value], right: [Key: Value]) {
         right.forEach {left[$0.key] = $0.value}
     }
 }

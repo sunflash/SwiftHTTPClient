@@ -118,7 +118,7 @@ open class KeychainSwift {
 
         let prefixedKey = keyWithPrefix(key)
 
-        var query: [String : Any] = [
+        var query: [String: Any] = [
             KeychainSwiftConstants.klass: kSecClassGenericPassword,
             KeychainSwiftConstants.attrAccount: prefixedKey,
             KeychainSwiftConstants.valueData: value,

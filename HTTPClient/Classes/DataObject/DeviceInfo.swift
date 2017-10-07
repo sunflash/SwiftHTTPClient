@@ -41,7 +41,7 @@ public class DeviceInfo: Mappable {
 
     public required init() {}
 
-    public var propertyValues: [String : Any] {
+    public var propertyValues: [String: Any] {
         return propertyValuesRaw
     }
 }

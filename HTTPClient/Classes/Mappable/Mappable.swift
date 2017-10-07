@@ -30,7 +30,7 @@ extension Mappable {
     }
 
     /// `Mappable` property name value pair that is not included computed property.
-    public var propertyValuesRaw: [String:Any] {
+    public var propertyValuesRaw: [String: Any] {
 
         var values = [String: Any]()
         let properties = Mirror(reflecting: self).children
@@ -44,7 +44,7 @@ extension Mappable {
 
     /// `Mappable` super class property name value pair that is not included computed property.
     /// - Note: Only work with class and not sturct.
-    public var superClassPropertyValuesRaw: [String:Any] {
+    public var superClassPropertyValuesRaw: [String: Any] {
 
         var values = [String: Any]()
 
@@ -61,7 +61,7 @@ extension Mappable {
     }
 
     /// `Mappable` property name value pair with `Optional` value unwrapped, doesn't included computed property.
-    public var propertyUnwrappedDataRaw: [String:Any] {
+    public var propertyUnwrappedDataRaw: [String: Any] {
         return unwrapPropertyValues(propertyValuesRaw, true)
     }
 
@@ -92,7 +92,7 @@ extension Mappable {
     }
 
     /// `Mappable` property name value pair with `Optional` value unwrapped, is included computed property.
-    public var propertyUnwrappedData: [String:Any] {
+    public var propertyUnwrappedData: [String: Any] {
         return unwrapPropertyValues(propertyValues, false)
     }
 
@@ -120,7 +120,7 @@ extension Mappable {
     ///     - propertyToAdjust: Sepecifiy property need adjustment.
     ///     - property: Array of property names that should be filter out.
     /// - Returns: New property values dictionary with some property values filter out.
-    private func excludePropertyValues(propertyNeedAdjust: [String:Any], excluded property: [String]) -> [String:Any] {
+    private func excludePropertyValues(propertyNeedAdjust: [String: Any], excluded property: [String]) -> [String: Any] {
         var values = [String: Any]()
         propertyNeedAdjust.filter {property.contains($0.key) == false}.forEach {values[$0.key] = $0.value}
         return values
@@ -135,9 +135,9 @@ extension Mappable {
     ///   - propertyInfo: Property values that we want to added to presentation, 
     /// that should include computed property values which is not part of the raw `Mappable` object.
     /// - Returns: A new dictionary with some raw property values removed and some computed property values added to the presentation.
-    public func adjustPropertyValues(_ propertyToAdjust: [String:Any] = [String: Any](),
+    public func adjustPropertyValues(_ propertyToAdjust: [String: Any] = [String: Any](),
                                      excluded property: [String] = [""],
-                                     additional propertyInfo: [String:Any] = [String: Any]()) -> [String:Any] {
+                                     additional propertyInfo: [String: Any] = [String: Any]()) -> [String: Any] {
         let propertyNeedAdjust = propertyToAdjust.isEmpty ? propertyValuesRaw : propertyToAdjust
         var values = excludePropertyValues(propertyNeedAdjust: propertyNeedAdjust, excluded: property)
         values += propertyInfo
@@ -193,7 +193,7 @@ extension Mappable {
     ///   - unwrappedPropertyValues: Unwrapped `Mappable` property values.
     ///   - dateFormatter: Date formatter that convert `Date` to `String`.
     /// - Returns: Formatted JSON representation as `String`.
-    private func generateObjectJsonRepresentation(_ unwrappedPropertyValues: [String:Any], _ dateFormatter: DateFormatter) -> String {
+    private func generateObjectJsonRepresentation(_ unwrappedPropertyValues: [String: Any], _ dateFormatter: DateFormatter) -> String {
 
         let errorMessage = "Can't generate \(objectInfo) json representation."
 
@@ -213,7 +213,7 @@ extension Mappable {
     ///   - dictionary: Unwrapped `Mappable` property values.
     ///   - dateFormatter: Date formatter that convert `Date` to `String`.
     /// - Returns: Formatted property values with `Date` converts to `String`
-    private func formatDateToString(_ dictionary: [String:Any], _ dateFormatter: DateFormatter) -> [String:Any] {
+    private func formatDateToString(_ dictionary: [String: Any], _ dateFormatter: DateFormatter) -> [String: Any] {
 
         var results = [String: Any]()
 
@@ -312,7 +312,7 @@ extension Mappable {
     ///   - values: Property values to unwrap.
     ///   - useRawValue: Flag whether what values to unwrap, `propertyValuesRaw` or `propertyValues` with nested `Mappable` object.
     /// - Returns: Unwrapped property values.
-    fileprivate func unwrapPropertyValues(_ values: [String:Any], _ useRawValue: Bool) -> [String:Any] {
+    fileprivate func unwrapPropertyValues(_ values: [String: Any], _ useRawValue: Bool) -> [String: Any] {
         var unwrappedValues = [String: Any]()
         for (key, value) in values {
             guard let validValue = unwrapPropertyValue(value, useRawValue) else {continue}

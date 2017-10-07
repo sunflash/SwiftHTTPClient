@@ -79,7 +79,7 @@ public struct JWTPayload {
     public var uniqueID: String?
 
     /// Raw JWT payload data
-    public var rawPayloadData: [String:Any] = [String: Any]()
+    public var rawPayloadData: [String: Any] = [String: Any]()
 
     /// Default requirement as part of the `Mappable` protocol, it's necessary when expose `Mappable` object through SDK framework.
     public init() {}
@@ -115,7 +115,7 @@ public struct JWTInfo {
             throw InvalidJWT.decodeError("Payload is not correctly encoded as base64")
         }
 
-        guard let payload = (try? JSONSerialization.jsonObject(with: payloadData, options: JSONSerialization.ReadingOptions(rawValue: 0))) as? [String:Any] else {
+        guard let payload = (try? JSONSerialization.jsonObject(with: payloadData, options: JSONSerialization.ReadingOptions(rawValue: 0))) as? [String: Any] else {
             throw InvalidJWT.decodeError("Invalid payload")
         }
 

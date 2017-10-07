@@ -48,7 +48,7 @@ public struct HTTPResults<R>: Mappable {
     /// - Parameter encoder: The encoder to write data to.
     public func encode(to encoder: Encoder) throws {}
 
-    public var propertyValues: [String : Any] {
+    public var propertyValues: [String: Any] {
         return propertyValuesRaw
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
 
-    func split(by string: String) -> [String] { // swiftlint:disable:this identifier_name
+    func split(by string: String) -> [String] {
         #if swift(>=4)
             return self.trimmingCharacters(in: .whitespaces).split(separator: Character(string)).map {String($0)}
         #else
