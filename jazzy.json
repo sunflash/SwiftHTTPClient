@@ -2,8 +2,8 @@
     "clean": true,
     "author": "Min Wu",
     "author_url": "https://github.com/sunflash",
-    "github_url": "https://github.com/sunflash/mappable",
+    "github_url": "https://github.com/sunflash/SwiftHTTPClient",
     "sdk": "iphoneos",
-    "module": "Mappable",
-    "xcodebuild_arguments": ["-scheme", "Mappable"]
+    "module": "HTTPClient",
+    "xcodebuild_arguments": ["-scheme", "HTTPClient"]
 }
