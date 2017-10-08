@@ -14,10 +14,7 @@
 		D34AB1631F8968FA001B3576 /* DefaultDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB12B1F8968FA001B3576 /* DefaultDateFormatter.swift */; };
 		D34AB1661F8968FA001B3576 /* HTTPResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB12E1F8968FA001B3576 /* HTTPResults.swift */; };
 		D34AB16D1F8968FA001B3576 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1381F8968FA001B3576 /* DeviceInfo.swift */; };
-		D34AB16E1F8968FA001B3576 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D34AB13B1F8968FA001B3576 /* LICENSE */; };
-		D34AB16F1F8968FA001B3576 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = D34AB13C1F8968FA001B3576 /* CHANGELOG.md */; };
 		D34AB1701F8968FA001B3576 /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB13D1F8968FA001B3576 /* KeychainSwift.swift */; };
-		D34AB1711F8968FA001B3576 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D34AB13E1F8968FA001B3576 /* README.md */; };
 		D34AB1721F8968FA001B3576 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1411F8968FA001B3576 /* UIImageView+Extension.swift */; };
 		D34AB1731F8968FA001B3576 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1421F8968FA001B3576 /* Collection+Extension.swift */; };
 		D34AB1741F8968FA001B3576 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1431F8968FA001B3576 /* String+Extension.swift */; };
@@ -38,8 +35,6 @@
 		D34AB1841F8968FA001B3576 /* JSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1561F8968FA001B3576 /* JSONResponse.swift */; };
 		D34AB1851F8968FA001B3576 /* RequestCancellation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1571F8968FA001B3576 /* RequestCancellation.swift */; };
 		D34AB1861F8968FA001B3576 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1591F8968FA001B3576 /* Reachability.m */; };
-		D34AB1871F8968FA001B3576 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D34AB15A1F8968FA001B3576 /* LICENSE */; };
-		D34AB1881F8968FA001B3576 /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = D34AB15B1F8968FA001B3576 /* ReadMe.md */; };
 		D34AB1891F8968FA001B3576 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = D34AB15C1F8968FA001B3576 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D34AB18A1F8968FA001B3576 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB15E1F8968FA001B3576 /* Mappable.swift */; };
 		D34AB18C1F8971D4001B3576 /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB18B1F8971D4001B3576 /* TokenHelper.swift */; };
@@ -216,9 +211,9 @@
 		D34AB13A1F8968FA001B3576 /* KeychainSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D34AB13D1F8968FA001B3576 /* KeychainSwift.swift */,
 				D34AB13B1F8968FA001B3576 /* LICENSE */,
 				D34AB13C1F8968FA001B3576 /* CHANGELOG.md */,
-				D34AB13D1F8968FA001B3576 /* KeychainSwift.swift */,
 				D34AB13E1F8968FA001B3576 /* README.md */,
 			);
 			path = KeychainSwift;
@@ -486,11 +481,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D34AB1711F8968FA001B3576 /* README.md in Resources */,
-				D34AB16E1F8968FA001B3576 /* LICENSE in Resources */,
-				D34AB1871F8968FA001B3576 /* LICENSE in Resources */,
-				D34AB16F1F8968FA001B3576 /* CHANGELOG.md in Resources */,
-				D34AB1881F8968FA001B3576 /* ReadMe.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
