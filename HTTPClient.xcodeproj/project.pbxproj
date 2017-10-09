@@ -804,6 +804,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FD869FC22E8D50ABA1DD052F /* Pods-SwiftHttpClient-HTTPClient.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -822,6 +823,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B5A383C90D5EAD055683867 /* Pods-SwiftHttpClient-HTTPClient.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
