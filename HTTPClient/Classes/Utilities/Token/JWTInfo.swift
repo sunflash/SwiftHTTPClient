@@ -139,7 +139,7 @@ public struct JWTInfo {
     /// - Parameter string: base64 string to decode
     /// - Returns: base64 decoded `Data`
     public static func base64decode(_ string: String) -> Data? {
-        let rem = string.characters.count % 4
+        let rem = string.count % 4
 
         var ending = ""
         if rem > 0 {

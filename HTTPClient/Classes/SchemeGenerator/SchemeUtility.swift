@@ -100,7 +100,7 @@ extension SchemeUtility {
     static func embeddedInClass(_ className: String, contents: [String], subclass: String = "", protocols: [String] = [String]()) -> String {
         var classBlock = newLine()
         var conformance = [String]()
-        if subclass.characters.isEmpty == false {conformance += [subclass]}
+        if subclass.isEmpty == false {conformance += [subclass]}
         conformance += protocols
         let conformanceSuffix = (conformance.isEmpty == false) ? ": \(conformance.joined(separator: ", "))" : ""
         classBlock += "class \(className)\(conformanceSuffix) {" + newLine(2)

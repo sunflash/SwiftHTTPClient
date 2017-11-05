@@ -288,7 +288,7 @@ extension SchemeBinding {
 
         // Do type match check for swift data types
         let nonNestedTypeMatchResult = isNonNestedType(fromType: fromType, toType: toType)
-        var toOptional = nonNestedTypeMatchResult.coalescing.characters.isEmpty == false
+        var toOptional = nonNestedTypeMatchResult.coalescing.isEmpty == false
 
         if nonNestedTypeMatchResult.isTypeMatch == true {
             return TypeMatchResult(isTypeMatch: true,

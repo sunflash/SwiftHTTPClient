@@ -156,7 +156,7 @@ extension SchemeDBModel {
         // Generate realm model types
         if let template = realmTypeTemplates[type] {
             // data types (Bool, Number, String, Date..)
-            let propertyNameLength = propertyName.characters.count
+            let propertyNameLength = propertyName.count
             let swiftLintDisableShortIdentiferName = (propertyNameLength == 2) ? " // swiftlint:disable:this identifier_name " : ""
             result.realmType = String(format: template, propertyName) + swiftLintDisableShortIdentiferName + newLine(2)
         } else if let object = value as? Mappable, let template = realmTypeTemplates["Object"] {
