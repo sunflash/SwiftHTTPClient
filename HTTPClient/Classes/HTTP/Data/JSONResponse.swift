@@ -165,9 +165,15 @@ public class JSONResponse {
 
         GCD.userInitiated.queue.async {
 
+            var bodyMessage = ""
+            if let body = response.body, let bodyString = String(data: body, encoding: .utf8) {
+                bodyMessage = bodyString
+            }
+
             var result = HTTPResults<T>()
             result.isSuccess = false
             result.responseCode = response.statusCode
+            result.message = bodyMessage
             result.error = response.error
 
             GCD.main.queue.async {

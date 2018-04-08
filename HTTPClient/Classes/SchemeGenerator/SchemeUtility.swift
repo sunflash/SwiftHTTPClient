@@ -24,6 +24,8 @@ func removeSubStrings(_ text: String, _ remove: [String]) -> String {
     return text
 }
 
+// swiftlint:disable identifier_name
+
 func lowerCaseFirstLetter(_ string: String) -> String {
     var s = string
     let i = s.startIndex

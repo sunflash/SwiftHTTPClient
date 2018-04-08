@@ -16,6 +16,9 @@ public class ReachabilityDetection {
 
     private var reachabilities = [APReachability]()
 
+    /// Reachability status completion handler
+    public var reachabilityStatusCompletionHandlers: [String: (Bool) -> Void] = [String: (Bool)->Void]()
+
     /// Is internet available for reachability hosts.
     public var isInternetAvailable = false
 
@@ -31,7 +34,7 @@ public class ReachabilityDetection {
     /// - Returns: Status for reachability monitoring
     public func startReachabilityMonitoring(hosts: [String]) -> (success: Bool, description: String) {
 
-        let urls = hosts.flatMap {URLComponents(string: $0)}
+        let urls = hosts.compactMap {URLComponents(string: $0)}
 
         guard urls.count == hosts.count else {
             return (false, "Hosts contains invalid domain host name")
@@ -44,7 +47,7 @@ public class ReachabilityDetection {
                                                    object: nil)
         }
 
-        for hostName in urls.flatMap({$0.string}) {
+        for hostName in urls.compactMap({$0.string}) {
             guard let reachability = APReachability(hostName: hostName) else {continue}
             reachability.startNotifier()
             self.reachabilities.append(reachability)
@@ -76,6 +79,10 @@ public class ReachabilityDetection {
     private func updateReachabilityStat(reachability: APReachability?) {
 
         self.isInternetAvailable = self.reachabilities.filter {$0.currentReachabilityStatus() != NotReachable}.isEmpty == false
+
+        reachabilityStatusCompletionHandlers.values.forEach {
+            $0(isInternetAvailable)
+        }
     }
 
     deinit {

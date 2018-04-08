@@ -19,7 +19,7 @@ extension Collection {
     public func filterDuplicates<T>(include: (T, T) -> Bool) -> [T] {
         var results = [T]()
         forEach { element in
-            if let e = element as? T {
+            if let e = element as? T { // swiftlint:disable:this identifier_name
                 let existingElements = results.filter {!include(e, $0)}
                 if existingElements.isEmpty == true {results.append(e)}
             }

@@ -135,7 +135,7 @@ extension RealmProfile {
     func toProfile() -> Profile {
 
         var profile = Profile()
-        profile.address = self.address.flatMap {$0.toAddress()}
+        profile.address = self.address.map {$0.toAddress()}
         profile.dob = self.dob
         profile.email = self.email
         profile.firstName = self.firstName

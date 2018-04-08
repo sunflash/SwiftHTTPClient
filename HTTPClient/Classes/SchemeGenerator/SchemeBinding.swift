@@ -112,6 +112,8 @@ extension SchemeBinding {
 
 extension SchemeBinding {
 
+    // swiftlint:disable identifier_name
+
     fileprivate static func generateBinding(_ bindingInfo: SchemeBindingInfo) -> String {
 
         // Extract object type info and values

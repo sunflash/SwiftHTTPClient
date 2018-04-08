@@ -26,7 +26,7 @@ extension Mappable {
 
     /// `Mappable` object property names that is not included computed property.
     public var propertyNamesRaw: [String] {
-        return Mirror(reflecting: self).children.flatMap {$0.label}
+        return Mirror(reflecting: self).children.compactMap {$0.label}
     }
 
     /// `Mappable` property name value pair that is not included computed property.
@@ -88,7 +88,7 @@ extension Mappable {
 
     /// `Mappable` property names which is included computed property.
     public var propertyNames: [String] {
-        return propertyValues.flatMap {$0.key}
+        return propertyValues.map {$0.key}
     }
 
     /// `Mappable` property name value pair with `Optional` value unwrapped, is included computed property.

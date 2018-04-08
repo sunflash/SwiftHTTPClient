@@ -109,7 +109,7 @@ class ClientTest: XCTestCase {
 
         _ = HTTPClient.shared.request(request: request, success: { response in
 
-            guard let data = response.body, let html = HTML(html: data, encoding: .utf8) else {
+            guard let data = response.body, let html = try? HTML(html: data, encoding: .utf8) else {
                 XCTFail("Decode html failed.")
                 return
             }

@@ -271,6 +271,8 @@ extension SchemeDBModel {
         }
     }
 
+    // swiftlint:disable identifier_name
+
     fileprivate static func generateToRealmObjectContents(object: Mappable,
                                                           primaryKeys: [String: [String]] = [String: [String]](),
                                                           types: SchemeTypeInfo) -> String {
