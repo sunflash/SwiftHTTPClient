@@ -20,13 +20,28 @@ public class JSONResponse {
     /// Date formatter to encode or decode date in response.
     public var dateFormatter: DateFormatter {
         get {
-            if case let JSONEncoder.DateEncodingStrategy.formatted(formatter) = encoder.dateEncodingStrategy {
+            if case let .formatted(formatter) = encoder.dateEncodingStrategy {
                 return formatter
             }
             return DefaultDateFormatter.api
-        } set {
+        }
+        set {
             encoder.dateEncodingStrategy = .formatted(newValue)
             decoder.dateDecodingStrategy = .formatted(newValue)
+        }
+    }
+
+    public var useISO8601: Bool {
+        get {
+            if case .iso8601 = encoder.dateEncodingStrategy {
+                return true
+            } else {
+                return false
+            }
+        }
+        set {
+            encoder.dateEncodingStrategy = (newValue == true) ? .iso8601 : .deferredToDate
+            decoder.dateDecodingStrategy = (newValue == true) ? .iso8601 : .deferredToDate
         }
     }
 
@@ -88,7 +103,6 @@ public class JSONResponse {
     /// - Returns: Result for decoding
     public func decodeSuccessResponse<T: Mappable>(_ response: HTTPResponse,
                                                    to toType: T.Type,
-                                                   validate validateResponse: Bool = false,
                                                    decodedResult: @escaping (HTTPResults<T>) -> Void) {
 
         GCD.userInitiated.queue.async {
