@@ -14,6 +14,9 @@ public struct HTTPResults<R>: Mappable {
     /// Whether transaction is success or faild
     public var isSuccess: Bool = false
 
+    /// Http headers for api response
+    public var headers: [String: String] = [String: String]()
+
     /// Http status code for api response
     public var responseCode: HTTPStatusCode = .unknownStatus
 

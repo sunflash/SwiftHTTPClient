@@ -31,6 +31,7 @@ public class JSONResponse {
         }
     }
 
+    /// Whether use ISO8601 standard to encode or decode date in reponse
     public var useISO8601: Bool {
         get {
             if case .iso8601 = encoder.dateEncodingStrategy {
@@ -60,6 +61,7 @@ public class JSONResponse {
 
         var returnResult = HTTPResults<T>()
         returnResult.isSuccess = result.isSuccess
+        returnResult.headers = result.headers
         returnResult.responseCode = result.responseCode
         returnResult.message = result.message
         returnResult.error = result.error
@@ -109,6 +111,7 @@ public class JSONResponse {
 
             var result = HTTPResults<T>()
             result.isSuccess = true
+            result.headers = response.headers
             result.responseCode = response.statusCode
 
             if let body = response.body {
@@ -147,6 +150,7 @@ public class JSONResponse {
 
             var transformResult = HTTPResults<R>()
             transformResult.isSuccess = true
+            transformResult.headers = response.headers
             transformResult.responseCode = response.statusCode
 
             if let body = response.body {
@@ -186,6 +190,7 @@ public class JSONResponse {
 
             var result = HTTPResults<T>()
             result.isSuccess = false
+            result.headers = response.headers
             result.responseCode = response.statusCode
             result.message = bodyMessage
             result.error = response.error
