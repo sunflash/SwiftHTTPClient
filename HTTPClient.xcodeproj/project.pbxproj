@@ -404,7 +404,6 @@
 				D34AB1061F89622A001B3576 /* Frameworks */,
 				D34AB1071F89622A001B3576 /* Headers */,
 				D34AB1081F89622A001B3576 /* Resources */,
-				AE95A178C31D8B292C9821A7 /* [CP] Copy Pods Resources */,
 				D39030B61F8981FD00798EC5 /* SwiftLint */,
 			);
 			buildRules = (
@@ -425,7 +424,6 @@
 				D34AB1101F89622A001B3576 /* Frameworks */,
 				D34AB1111F89622A001B3576 /* Resources */,
 				028C2A16FEC023E0778825C4 /* [CP] Embed Pods Frameworks */,
-				AC7D2730F9BB602F404FE68B /* [CP] Copy Pods Resources */,
 				D39030B71F89822E00798EC5 /* SwiftLint */,
 			);
 			buildRules = (
@@ -450,10 +448,12 @@
 				TargetAttributes = {
 					D34AB1091F89622A001B3576 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					D34AB1121F89622A001B3576 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -554,36 +554,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AC7D2730F9BB602F404FE68B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftHttpClient-HTTPClientTests/Pods-SwiftHttpClient-HTTPClientTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AE95A178C31D8B292C9821A7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftHttpClient-HTTPClient/Pods-SwiftHttpClient-HTTPClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D39030B61F8981FD00798EC5 /* SwiftLint */ = {
@@ -819,6 +789,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sunflash.HTTPClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -838,6 +809,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sunflash.HTTPClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -851,6 +823,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sunflash.HTTPClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -864,6 +837,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sunflash.HTTPClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

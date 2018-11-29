@@ -229,7 +229,7 @@ extension Mappable {
             }
 
             let result = processDataInNestedStructure(type: [String: Any].self, value: value) { nestedDictionary in
-                return formatDateToString(nestedDictionary, dateFormatter)
+                formatDateToString(nestedDictionary, dateFormatter)
             }
             if result.isNestedObject == true {
                 results[key] = result.data
