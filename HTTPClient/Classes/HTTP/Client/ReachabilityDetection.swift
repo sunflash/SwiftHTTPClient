@@ -25,6 +25,8 @@ public class ReachabilityDetection {
     /// Hosts that is monitoring at the moment.
     public private(set) var monitoringHosts = [String]()
 
+    init() {}
+
     //-----------------------------------------------------------------------------------------------------------------
     // MARK: - Reachability methodes
 
@@ -68,6 +70,7 @@ public class ReachabilityDetection {
         NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabilityChanged, object: nil)
         self.reachabilities.removeAll()
         self.monitoringHosts.removeAll()
+        self.reachabilityStatusCompletionHandlers.removeAll()
     }
 
     @objc private func reachabilityChanged(notification: Notification) {

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import HTTPClient
+@testable import HTTPClient
 
 class Reachability: XCTestCase {
 
@@ -25,18 +25,25 @@ class Reachability: XCTestCase {
     func testValidHostsReachability() {
 
         let hosts = ["www.google.com", "www.apple.com"]
-        let reachabilityStatus = ReachabilityDetection.shared.startReachabilityMonitoring(hosts: hosts)
-        print("!! ValidHosts :  \(reachabilityStatus.success), \(reachabilityStatus.description)")
+
+        let reachabilityDetection = ReachabilityDetection()
+        let reachabilityStatus = reachabilityDetection.startReachabilityMonitoring(hosts: hosts)
+        print("## ValidHosts :  \(reachabilityStatus.success), \(reachabilityStatus.description)")
 
         let validHostsExpectation = expectation(description: "ValidHosts")
 
+        var status = [Bool]()
         let validHostCompletionHandler: (Bool) -> Void = {
-            print("ValidHostStatus", $0)
+            status.append($0)
         }
-        ReachabilityDetection.shared.reachabilityStatusCompletionHandlers["ValidHost"] = validHostCompletionHandler
+        reachabilityDetection.reachabilityStatusCompletionHandlers["ValidHost"] = validHostCompletionHandler
 
-        GCD.main.after(delay: 2.5) {
-            XCTAssertTrue(ReachabilityDetection.shared.isInternetAvailable)
+        GCD.main.after(delay: 3.5) {
+            if status.contains(false) == false {
+                XCTAssertTrue(reachabilityDetection.isInternetAvailable)
+            } else {
+                XCTFail("Valid host detection failed")
+            }
             validHostsExpectation.fulfill()
         }
 
@@ -45,24 +52,29 @@ class Reachability: XCTestCase {
 
     func testNonExistHostsReachability() {
 
-        let nonExistHostsExpectation = expectation(description: "NonExistHosts")
-
         let hosts = ["unicornant.org", "pandakinguru.com"]
-        let reachabilityStatus = ReachabilityDetection.shared.startReachabilityMonitoring(hosts: hosts)
-        print("!! NonExistValidHosts :  \(reachabilityStatus.success), \(reachabilityStatus.description)")
 
-        let invalidHostCompletionHandler: (Bool) -> Void = { isInternetAvailable in
-            if isInternetAvailable == false {
-                print("InvalidHostStatus", isInternetAvailable)
-                XCTAssertTrue(true)
-            }
+        let reachabilityDetection = ReachabilityDetection()
+        let reachabilityStatus = reachabilityDetection.startReachabilityMonitoring(hosts: hosts)
+        print("## NonExistValidHosts :  \(reachabilityStatus.success), \(reachabilityStatus.description)")
+
+        let nonExistHostsExpectation = expectation(description: "NonExistHostss")
+
+        var status = [Bool]()
+        let invalidHostCompletionHandler: (Bool) -> Void = {
+            status.append($0)
         }
-        ReachabilityDetection.shared.reachabilityStatusCompletionHandlers["InvalidHost"] = invalidHostCompletionHandler
+        reachabilityDetection.reachabilityStatusCompletionHandlers["InvalidHost"] = invalidHostCompletionHandler
 
-        GCD.main.after(delay: 2.5) {
-            XCTAssertFalse(ReachabilityDetection.shared.isInternetAvailable)
+        GCD.main.after(delay: 3.5) {
+            if status.contains(false) == true {
+                XCTAssertFalse(reachabilityDetection.isInternetAvailable)
+            } else {
+                XCTFail("Invalid host detection failed")
+            }
             nonExistHostsExpectation.fulfill()
         }
-        waitForExpectations(timeout: 3)
+
+        waitForExpectations(timeout: 5)
     }
 }
