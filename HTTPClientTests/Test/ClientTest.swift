@@ -53,7 +53,7 @@ class ClientTest: XCTestCase {
             XCTAssertEqual(jsonDict["full_name"] as? String, "twbs/bootstrap")
             XCTAssertEqual(jsonDict["name"] as? String, "bootstrap")
             XCTAssertEqual(jsonDict["id"] as? Int, 2126244)
-            XCTAssertEqual(jsonDict["language"] as? String, "CSS")
+            XCTAssertEqual(jsonDict["language"] as? String, "JavaScript")
 
             expectation.fulfill()
         }, error: { response in

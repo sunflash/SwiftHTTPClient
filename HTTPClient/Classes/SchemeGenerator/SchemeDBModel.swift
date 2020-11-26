@@ -497,7 +497,7 @@ extension SchemeDBModel {
         types += ["Optional<Int>", "Optional<Int64>", "Optional<Float>", "Optional<Double>", "Optional<Bool>", "Optional<String>"]
         types += ["Date", "Optional<Date>"]
 
-        if fromType == toType && types.contains {$0 == "\(toType)"} {
+        if fromType == toType && (types.contains {$0 == "\(toType)"}) {
             return coalescing
         }
 

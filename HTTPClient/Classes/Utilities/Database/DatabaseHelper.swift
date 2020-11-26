@@ -9,6 +9,7 @@
 import Foundation
 import Security
 import RealmSwift
+import KeychainSwift
 
 /// Protocol that simplify database handling
 public protocol DatabaseHelper {
@@ -42,41 +43,41 @@ extension DatabaseHelper {
 
     /// Database directory
     public static var databaseDirectory: URL {
-        return URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+        URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
     }
 
     /// Realm file url
     private static var realmFileURL: URL {
-        return databaseDirectory.appendingPathComponent("\(databaseFileName).realm")
+        databaseDirectory.appendingPathComponent("\(databaseFileName).realm")
     }
 
     /// Realm temporary file url when doing convertion
     private static var tempCopyFileURL: URL {
-        return databaseDirectory.appendingPathComponent("\(databaseFileName)_temp.realm")
+        databaseDirectory.appendingPathComponent("\(databaseFileName)_temp.realm")
     }
 
     /// Whether DB is read only. (default is false)
     public static var readOnly: Bool {
         get {return false}
-        set {}
+        set {} // swiftlint:disable:this unused_setter_value
     }
 
     /// The current schema version. (default to 0)
     public static var schemaVersion: UInt64 {
         get {return 0}
-        set {}
+        set {} // swiftlint:disable:this unused_setter_value
     }
 
     /// The block which migrates the DB to the current version. (default to empty)
     public static var migrationBlock: MigrationBlock? {
         get {return {_, _ in }}
-        set {}
+        set {} // swiftlint:disable:this unused_setter_value
     }
 
     /// Whether database should be deleted if schema migration is required. (default to true)
     public static var deleteDatabaseIfMigrationNeeded: Bool {
         get {return false}
-        set {}
+        set {} // swiftlint:disable:this unused_setter_value
     }
 
     /// Default database configuration
@@ -109,10 +110,11 @@ extension DatabaseHelper {
         }
 
         // If realm db encryption key doesn't exist, generate a new key and save to the keychain.
-        var key = Data(count: 64)
-        _ = key.withUnsafeMutableBytes { bytes in
-            SecRandomCopyBytes(kSecRandomDefault, 64, bytes)
-        }
+        let length = 64
+        var bytes = [UInt8](repeating: 0, count: length)
+        _ = SecRandomCopyBytes(kSecRandomDefault, length, &bytes)
+        let key = Data(bytes: bytes, count: length)
+
         keychainSwift.set(key, forKey: encryptionKeyIdentifier)
 
         return key
@@ -124,7 +126,7 @@ extension DatabaseHelper {
     /// - Returns: database instance
     public static func getDatabaseInstance(with configuration: Realm.Configuration = Self.defaultDatabaseConfiguration) -> Realm? {
 
-        return autoreleasepool { () -> Realm? in
+        autoreleasepool { () -> Realm? in
             do {
                 return try Realm(configuration: configuration)
             } catch Realm.Error.fileAccess {
@@ -228,7 +230,7 @@ extension DatabaseHelper {
     /// - Returns: Whether remove database is succeed or failed
     public static func removeDatabase() -> Bool {
 
-        return deleteFileIfExist(url: realmFileURL)
+        deleteFileIfExist(url: realmFileURL)
     }
 
     private static func deleteFileIfExist(url: URL) -> Bool {

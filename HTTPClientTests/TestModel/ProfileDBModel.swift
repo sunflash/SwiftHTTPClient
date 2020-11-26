@@ -32,7 +32,7 @@ class RealmProfile: Object {
     let address = List<RealmAddress>()
 
     override static func primaryKey() -> String? {
-        return "identifier"
+        "identifier"
     }
 }
 
@@ -49,7 +49,7 @@ class RealmAddress: Object {
     let zipCode = RealmOptional<Int>()
 
     override static func primaryKey() -> String? {
-        return "identifier"
+        "identifier"
     }
 }
 
@@ -62,7 +62,7 @@ class RealmMobile: Object {
     @objc dynamic var number: String?
 
     override static func primaryKey() -> String? {
-        return "identifier"
+        "identifier"
     }
 }
 

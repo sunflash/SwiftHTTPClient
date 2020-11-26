@@ -17,7 +17,7 @@ public class RequestCancellationToken {
     /// Flag of the task that is cancelled.
     /// Use internally to stop callback for success/error completion handler
     public var isTaskCancelled: Bool {
-        return (self.task == nil)
+        (self.task == nil)
     }
 
     /// Cancel and remove url sessoin task that is running or on queue

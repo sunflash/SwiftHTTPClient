@@ -11,11 +11,11 @@ import Foundation
 // MARK: - Convenience string function
 
 func newLine(_ count: Int = 1) -> String {
-    return String(repeating: "\n", count: count)
+    String(repeating: "\n", count: count)
 }
 
 func tab(_ count: Int = 1) -> String {
-    return String(repeating: "\t", count: count)
+    String(repeating: "\t", count: count)
 }
 
 func removeSubStrings(_ text: String, _ remove: [String]) -> String {
@@ -45,7 +45,7 @@ func capitalizingFirstLetter(_ string: String) -> String {
 class SchemeUtility {
 
     static func objectTypeDescription(mirror: Mirror) -> String {
-        return "\(mirror.subjectType)"
+        "\(mirror.subjectType)"
     }
 
     enum NestedObjectType {

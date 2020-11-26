@@ -26,7 +26,7 @@ extension Mappable {
 
     /// `Mappable` object property names that is not included computed property.
     public var propertyNamesRaw: [String] {
-        return Mirror(reflecting: self).children.compactMap {$0.label}
+        Mirror(reflecting: self).children.compactMap {$0.label}
     }
 
     /// `Mappable` property name value pair that is not included computed property.
@@ -62,13 +62,13 @@ extension Mappable {
 
     /// `Mappable` property name value pair with `Optional` value unwrapped, doesn't included computed property.
     public var propertyUnwrappedDataRaw: [String: Any] {
-        return unwrapPropertyValues(propertyValuesRaw, true)
+        unwrapPropertyValues(propertyValuesRaw, true)
     }
 
     /// `Mappable` property value without computed property in description,
     /// can either print out to console for debugging, logs to file or sendt out to log collection system.
     public var objectDescriptionRaw: String {
-        return generateObjectDescription(showRawDescription: true)
+        generateObjectDescription(showRawDescription: true)
     }
 }
 
@@ -88,18 +88,18 @@ extension Mappable {
 
     /// `Mappable` property names which is included computed property.
     public var propertyNames: [String] {
-        return propertyValues.map {$0.key}
+        propertyValues.map {$0.key}
     }
 
     /// `Mappable` property name value pair with `Optional` value unwrapped, is included computed property.
     public var propertyUnwrappedData: [String: Any] {
-        return unwrapPropertyValues(propertyValues, false)
+        unwrapPropertyValues(propertyValues, false)
     }
 
     /// `Mappable` property value with computed property as part of the description,
     /// can either print out to console for debugging, logs to file or sendt out to log collection system.
     public var objectDescription: String {
-        return generateObjectDescription(showRawDescription: false)
+        generateObjectDescription(showRawDescription: false)
     }
 }
 
@@ -111,7 +111,7 @@ extension Mappable {
     ///
     /// - Parameter key: name of the property
     public subscript (key: String) -> Any? {
-        return propertyValues[key] ?? propertyValuesRaw[key]
+        propertyValues[key] ?? propertyValuesRaw[key]
     }
 
     /// Create a new property values dictionary with some property values filter out.
@@ -184,7 +184,7 @@ extension Mappable {
     /// - Parameter dateFormatter: Date formatter that convert `Date` to `String`.
     /// - Returns: Formatted JSON representation as `String`.
     public func propertyJSONRepresentation(dateFormatter: DateFormatter) -> String {
-        return generateObjectJsonRepresentation(propertyUnwrappedDataRaw, dateFormatter)
+        generateObjectJsonRepresentation(propertyUnwrappedDataRaw, dateFormatter)
     }
 
     /// Generate `Mappable` object's JSON representation.
@@ -375,6 +375,8 @@ extension Mirror.DisplayStyle {
             return "Struct"
         case .tuple:
             return "Tuple"
+        @unknown default:
+            return ""
         }
     }
 }

@@ -292,11 +292,7 @@ extension JsonResponse {
 
             GCD.userInitiated.queue.async {
 
-                #if swift(>=4)
-                    let keys = keyPath.trimmingCharacters(in: .whitespaces).split(separator: ",")
-                #else
-                    let keys = keyPath.trimmingCharacters(in: .whitespaces).components(separatedBy: ",")
-                #endif
+                let keys = keyPath.trimmingCharacters(in: .whitespaces).split(separator: ",")
 
                 var value = object
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import KeychainSwift
 
 /// Token helper class
 public class TokenHelper: Log {

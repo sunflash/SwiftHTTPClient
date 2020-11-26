@@ -61,7 +61,7 @@ public class SchemeGenerator {
     /// - Parameter schemeInfo: scheme info for generate binding
     /// - Returns: Generated swift to objective-C binding
     public static func generateOBJCBindings(_ schemeInfo: SchemeInfo) -> String {
-        return SchemeBinding.generateOBJCBindings(schemeInfo)
+        SchemeBinding.generateOBJCBindings(schemeInfo)
     }
 
     /// Generate DB model
@@ -69,6 +69,6 @@ public class SchemeGenerator {
     /// - Parameter schemeInfo: scheme info for generate db model
     /// - Returns: Generated db model
     public static func generateDBModel(_ schemeInfo: SchemeInfo) -> String {
-        return SchemeDBModel.generateDBModel(schemeInfo)
+        SchemeDBModel.generateDBModel(schemeInfo)
     }
 }

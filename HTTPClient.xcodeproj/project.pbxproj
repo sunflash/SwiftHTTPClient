@@ -14,7 +14,6 @@
 		D34AB1631F8968FA001B3576 /* DefaultDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB12B1F8968FA001B3576 /* DefaultDateFormatter.swift */; };
 		D34AB1661F8968FA001B3576 /* HTTPResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB12E1F8968FA001B3576 /* HTTPResults.swift */; };
 		D34AB16D1F8968FA001B3576 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1381F8968FA001B3576 /* DeviceInfo.swift */; };
-		D34AB1701F8968FA001B3576 /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB13D1F8968FA001B3576 /* KeychainSwift.swift */; };
 		D34AB1721F8968FA001B3576 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1411F8968FA001B3576 /* UIImageView+Extension.swift */; };
 		D34AB1731F8968FA001B3576 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1421F8968FA001B3576 /* Collection+Extension.swift */; };
 		D34AB1741F8968FA001B3576 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34AB1431F8968FA001B3576 /* String+Extension.swift */; };
@@ -74,10 +73,6 @@
 		D34AB12B1F8968FA001B3576 /* DefaultDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDateFormatter.swift; sourceTree = "<group>"; };
 		D34AB12E1F8968FA001B3576 /* HTTPResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResults.swift; sourceTree = "<group>"; };
 		D34AB1381F8968FA001B3576 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
-		D34AB13B1F8968FA001B3576 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		D34AB13C1F8968FA001B3576 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
-		D34AB13D1F8968FA001B3576 /* KeychainSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
-		D34AB13E1F8968FA001B3576 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D34AB1411F8968FA001B3576 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		D34AB1421F8968FA001B3576 /* Collection+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		D34AB1431F8968FA001B3576 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -203,20 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				D34AB1581F8968FA001B3576 /* Reachability */,
-				D34AB13A1F8968FA001B3576 /* KeychainSwift */,
 			);
 			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		D34AB13A1F8968FA001B3576 /* KeychainSwift */ = {
-			isa = PBXGroup;
-			children = (
-				D34AB13D1F8968FA001B3576 /* KeychainSwift.swift */,
-				D34AB13B1F8968FA001B3576 /* LICENSE */,
-				D34AB13C1F8968FA001B3576 /* CHANGELOG.md */,
-				D34AB13E1F8968FA001B3576 /* README.md */,
-			);
-			path = KeychainSwift;
 			sourceTree = "<group>";
 		};
 		D34AB13F1F8968FA001B3576 /* Classes */ = {
@@ -443,17 +426,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Min Wu";
 				TargetAttributes = {
 					D34AB1091F89622A001B3576 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1220;
 						ProvisioningStyle = Automatic;
 					};
 					D34AB1121F89622A001B3576 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1220;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -464,6 +447,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = D34AB1001F89622A001B3576;
 			productRefGroup = D34AB10B1F89622A001B3576 /* Products */;
@@ -502,7 +486,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftHttpClient-HTTPClientTests/Pods-SwiftHttpClient-HTTPClientTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftHttpClient-HTTPClientTests/Pods-SwiftHttpClient-HTTPClientTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
@@ -510,6 +495,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
@@ -517,7 +503,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftHttpClient-HTTPClientTests/Pods-SwiftHttpClient-HTTPClientTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftHttpClient-HTTPClientTests/Pods-SwiftHttpClient-HTTPClientTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		34B1A0CCBFF4F59C76C38F7A /* [CP] Check Pods Manifest.lock */ = {
@@ -604,7 +590,6 @@
 				D34AB17B1F8968FA001B3576 /* SchemeGenerator.swift in Sources */,
 				D34AB1831F8968FA001B3576 /* HTTPObjects.swift in Sources */,
 				D34AB1731F8968FA001B3576 /* Collection+Extension.swift in Sources */,
-				D34AB1701F8968FA001B3576 /* KeychainSwift.swift in Sources */,
 				D34AB1801F8968FA001B3576 /* HTTPStatus.swift in Sources */,
 				D34AB1631F8968FA001B3576 /* DefaultDateFormatter.swift in Sources */,
 				D34AB17C1F8968FA001B3576 /* SchemeDBModel.swift in Sources */,
@@ -672,6 +657,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -698,7 +684,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LLVM_LTO = YES;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -707,7 +693,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -739,6 +725,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -760,14 +747,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LLVM_LTO = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -789,7 +776,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sunflash.HTTPClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -809,7 +795,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sunflash.HTTPClient;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -823,7 +808,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sunflash.HTTPClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -837,7 +821,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sunflash.HTTPClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

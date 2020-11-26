@@ -85,23 +85,23 @@ extension Log {
 
     /// Use global `Warning` log config as default.
     public var showWarningLog: Bool {
-        return LogGlobalConfig.showWarningLog
+        LogGlobalConfig.showWarningLog
     }
     /// Use global `Error` log config as default.
     public var showErrorLog: Bool {
-        return LogGlobalConfig.showErrorLog
+        LogGlobalConfig.showErrorLog
     }
     /// Use global `Debug` log config as default.
     public var showDebugLog: Bool {
-        return LogGlobalConfig.showDebugLog
+        LogGlobalConfig.showDebugLog
     }
     /// Use global `Info` log config as default.
     public var showInfoLog: Bool {
-        return LogGlobalConfig.showInfoLog
+        LogGlobalConfig.showInfoLog
     }
     /// Use global `Verbose` log config as default.
     public var showVerboseLog: Bool {
-        return LogGlobalConfig.showVerboseLog
+        LogGlobalConfig.showVerboseLog
     }
 
     /// Function to log message to console.
@@ -128,23 +128,23 @@ extension Log { // Static version of the `Log` protocol extension
 
     /// Use global `Warning` log config as default
     public static var showWarningLog: Bool {
-        return LogGlobalConfig.showWarningLog
+        LogGlobalConfig.showWarningLog
     }
     /// Use global `Error` log config as default.
     public static var showErrorLog: Bool {
-        return LogGlobalConfig.showErrorLog
+        LogGlobalConfig.showErrorLog
     }
     /// Use global `Debug` log config as default.
     public static var showDebugLog: Bool {
-        return LogGlobalConfig.showDebugLog
+        LogGlobalConfig.showDebugLog
     }
     /// Use global `Info` log config as default.
     public static var showInfoLog: Bool {
-        return LogGlobalConfig.showInfoLog
+        LogGlobalConfig.showInfoLog
     }
     /// Use global `Verbose` log config as default.
     public static var showVerboseLog: Bool {
-        return LogGlobalConfig.showVerboseLog
+        LogGlobalConfig.showVerboseLog
     }
 
     /// Function to log message to console.
@@ -260,5 +260,5 @@ public func printSeparatorLine(_ pattern: String = "-", _ length: Int = 100) {
 ///   - length: Length for separator line, default that repeat pattern 100 times.
 /// - Returns: Separator line string with new line.
 public func separatorWithNewLine(_ pattern: String = "*", _ length: Int = 100) -> String {
-    return  "\n" + String(repeating: pattern, count: length) + "\n"
+    "\n" + String(repeating: pattern, count: length) + "\n"
 }

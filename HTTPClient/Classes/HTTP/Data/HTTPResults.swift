@@ -52,6 +52,6 @@ public struct HTTPResults<R>: Mappable {
     public func encode(to encoder: Encoder) throws {}
 
     public var propertyValues: [String: Any] {
-        return propertyValuesRaw
+        propertyValuesRaw
     }
 }

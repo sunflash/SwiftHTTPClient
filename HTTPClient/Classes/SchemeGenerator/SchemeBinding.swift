@@ -254,7 +254,7 @@ extension SchemeBinding {
         nonNestedTypes += ["Optional<Int>", "Optional<Int64>", "Optional<Float>", "Optional<Double>", "Optional<Bool>", "Optional<String>"]
         nonNestedTypes += ["Date", "Optional<Date>"]
 
-        if fromType == toType && nonNestedTypes.contains {$0 == "\(toType)"} {
+        if fromType == toType && (nonNestedTypes.contains {$0 == "\(toType)"}) {
             return (true, coalescing)
         }
 
