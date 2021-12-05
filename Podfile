@@ -5,7 +5,7 @@ use_frameworks!
 abstract_target 'SwiftHttpClient' do
 
     pod 'KeychainSwift'
-    pod 'RealmSwift'
+    pod 'RealmSwift', '~> 5.0'
     pod 'SwiftLint'
 
     target 'HTTPClient' do

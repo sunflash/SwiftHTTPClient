@@ -426,7 +426,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Min Wu";
 				TargetAttributes = {
 					D34AB1091F89622A001B3576 = {
@@ -554,7 +554,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"error: 💣💣💣 SwiftLint is not installed, run \\\"pod install\\\"\"\nfi";
+			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n    ${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n    ${PODS_ROOT}/SwiftLint/swiftlint\nelse\n    echo \"error: 💣💣💣 SwiftLint is not installed, run \\\"pod install\\\"\"\nfi\n";
 		};
 		D39030B71F89822E00798EC5 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
